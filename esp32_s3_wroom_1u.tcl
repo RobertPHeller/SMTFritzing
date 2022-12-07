@@ -8,7 +8,7 @@
 #  Author        : $Author$
 #  Created By    : Robert Heller
 #  Created       : Tue Dec 6 13:21:32 2022
-#  Last Modified : <221207.1239>
+#  Last Modified : <221207.1359>
 #
 #  Description	
 #
@@ -186,9 +186,10 @@ snit::type ESP32_S3_WROOM_SCHEMATIC {
                                         r  [expr {$pinDiameter / 2.0}] \
                                         id $connId \
                                         class pin \
+                                        connectorname $pinnumber \
                                         fill none stroke-width 60 stroke black]]
         $schemGroup addchild $pinConnection
-        set pinConnection [SimpleDOMElement create %AUTO% -tag g \
+        set pinConnection [SimpleDOMElement create %AUTO% -tag rect \
                            -attributes [list \
                                         id $connId \
                                         fill none \
@@ -258,9 +259,10 @@ snit::type ESP32_S3_WROOM_SCHEMATIC {
                                         r  [expr {$pinDiameter / 2.0}] \
                                         id $connId \
                                         class pin \
+                                        connectorname $pinnumber \
                                         fill none stroke-width 60 stroke black]]
         $schemGroup addchild $pinConnection
-        set pinConnection [SimpleDOMElement create %AUTO% -tag g \
+        set pinConnection [SimpleDOMElement create %AUTO% -tag rect \
                            -attributes [list \
                                         id $connId \
                                         fill none \
@@ -313,9 +315,10 @@ snit::type ESP32_S3_WROOM_SCHEMATIC {
                                         r  [expr {$pinDiameter / 2.0}] \
                                         id $connId \
                                         class pin \
+                                        connectorname $pinnumber \
                                         fill none stroke-width 60 stroke black]]
         $schemGroup addchild $pinConnection
-        set pinConnection [SimpleDOMElement create %AUTO% -tag g \
+        set pinConnection [SimpleDOMElement create %AUTO% -tag rect \
                            -attributes [list \
                                         id $connId \
                                         fill none \
@@ -444,9 +447,10 @@ snit::type ESP32_S3_WROOM_SCHEMATIC {
                                         r  [expr {$pindiameter / 2.0}] \
                                         id $connId \
                                         class pin \
+                                        connectorname EPAD \
                                         fill none stroke-width 60 stroke black]]
         $schemGroup addchild $pinConnection
-        set pinConnection [SimpleDOMElement create %AUTO% -tag g \
+        set pinConnection [SimpleDOMElement create %AUTO% -tag rect \
                            -attributes [list \
                                         id $connId \
                                         fill none \
@@ -514,7 +518,7 @@ snit::type ESP32_S3_WROOM_BREADBOARD {
                                         class pin \
                                         fill none stroke-width 0 stroke none]]
         $bboardgroup addchild $pinConnection
-        set pinConnection [SimpleDOMElement create %AUTO% -tag g \
+        set pinConnection [SimpleDOMElement create %AUTO% -tag rect \
                            -attributes [list \
                                         id $connId \
                                         fill none \
@@ -546,7 +550,7 @@ snit::type ESP32_S3_WROOM_BREADBOARD {
                                         class pin \
                                         fill none stroke-width 0 stroke none]]
         $bboardgroup addchild $pinConnection
-        set pinConnection [SimpleDOMElement create %AUTO% -tag g \
+        set pinConnection [SimpleDOMElement create %AUTO% -tag rect \
                            -attributes [list \
                                         id $connId \
                                         fill none \
@@ -582,7 +586,7 @@ snit::type ESP32_S3_WROOM_BREADBOARD {
                                         class pin \
                                         fill none stroke-width 0 stroke none]]
         $bboardgroup addchild $pinConnection
-        set pinConnection [SimpleDOMElement create %AUTO% -tag g \
+        set pinConnection [SimpleDOMElement create %AUTO% -tag rect \
                            -attributes [list \
                                         id $connId \
                                         fill none \
@@ -644,7 +648,7 @@ snit::type ESP32_S3_WROOM_BREADBOARD {
                                id $connId \
                                connectorname epad]]
         $bboardGroup addchild $ePad
-        set pinConnection [SimpleDOMElement create %AUTO% -tag g \
+        set pinConnection [SimpleDOMElement create %AUTO% -tag rect \
                            -attributes [list \
                                         id $connId \
                                         fill none \
@@ -980,7 +984,7 @@ snit::type ESP32_S3_WROOM_PART {
             set conn [SimpleDOMElement create %AUTO% -tag connector \
                       -attributes [list \
                                    name [format {pin %d} $i] \
-                                   type pad \
+                                   type male \
                                    id [format {connector%d} $i] \
                                    ]]
             $connectors addchild $conn
@@ -1009,7 +1013,7 @@ snit::type ESP32_S3_WROOM_PART {
         set conn [SimpleDOMElement create %AUTO% -tag connector \
                   -attributes [list \
                                name EPAD \
-                               type pad \
+                               type male \
                                id connector41]]
         $connectors addchild $conn
         set descr [SimpleDOMElement create %AUTO% -tag description]
